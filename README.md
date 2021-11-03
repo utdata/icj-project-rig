@@ -8,7 +8,7 @@ The development concepts used are similar to rigs used by news graphics teams in
 
 This Node-based rig uses a Gulp workflow configured for Github Pages publishing. Features include:
 
-- [Bootstrap 4.4](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
+- [Bootstrap 5.1.3](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
 - [Nunjucks Templating](https://mozilla.github.io/nunjucks/templating.html) with [`journalize`](https://www.npmjs.com/package/journalize) filters.
 - Ability to configure Google Sheets and Docs (with [ArchieML](http://archieml.org/)) to manage data and content.
 
