@@ -60,7 +60,7 @@ Templates work off several basic concepts:
 - _extends_ is used to specify template inheritance, meaning you can "build upon" templates to avoid repeating code.
 - _block_ defines a section in a template and identifies it with a name. Pages that extend a template can override or append to these reserved blocks with new content.
 - _include_ imports code from other files. It's useful to organize or share smaller chunks of code.
-- _macro_ allows you to define reusable chunks of content. It is similar to a function in other programming language.
+- _macro_ allows you to define reusable chunks of content. It is similar to a function in other programming languages.
 
 With these tools, you can build a site framework once as a template, and then _extend_ that template and use all its code, but swap out predefined _blocks_ specific to your new page.
 
