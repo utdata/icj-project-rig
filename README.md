@@ -1,6 +1,9 @@
 # ICJ Project Rig
 
-This project rig was developed for the [Intro to Coding for Journalists](https://github.com/utdata/icj-class) class taught by Christian McDonald, Assistant Professor of Practice at the School of Journalism, Moody College of Communication, University of Texas at Austin.
+This project rig was developed for the [Intro to Coding for Journalists](https://github.com/utdata/icj-class) class taught at different times by two different professors in the School of Journalism and Media, Moody College of Communication, University of Texas at Austin:
+
+- [Christian McDonald](https://github.com/critmcdonald), Assistant Professor of Practice
+- [Jeff Linwood](https://github.com/jefflinwood), Lecturer
 
 The development concepts used are similar to rigs used by news graphics teams in newsrooms like The Texas Tribune, Los Angeles Times and NPR.
 
@@ -14,7 +17,7 @@ This Node-based rig uses a Gulp workflow configured for Github Pages publishing.
 
 ## Getting started
 
-All the necessary installations are handled in [icj-setting-up](https://github.com/utdata/icj-setting-up) parts I and II.
+All the necessary installations are handled in [icj-setting-up](https://github.com/utdata/icj-setting-up).
 
 To start a new project:
 
