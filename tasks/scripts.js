@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const newer = require('gulp-newer');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+import gulp from 'gulp';
+import newer from 'gulp-newer';
+import sourcemaps from 'gulp-sourcemaps';
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
+import uglify from 'gulp-uglify';
  
-module.exports = () => {
+export function scripts() {
   return gulp.src([
     './src/js/main.js'
   ])

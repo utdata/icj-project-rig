@@ -1,10 +1,10 @@
-const gulp = require('gulp');
-const cache = require('gulp-cache');
-const imagemin = require('gulp-imagemin');
-const imageminMozjpeg = require('imagemin-mozjpeg'); 
-const imageminPngquant = require('imagemin-pngquant');
+import gulp from 'gulp';
+import cache from 'gulp-cache';
+import imagemin from 'gulp-imagemin';
+import imageminMozjpeg from 'imagemin-mozjpeg'; 
+import imageminPngquant from 'imagemin-pngquant';
 
-module.exports = () => {
+export function images() {
   return gulp.src('./src/img/**/*')
     .pipe(cache(imagemin([
       // lossy jpg compression

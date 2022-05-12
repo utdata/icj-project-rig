@@ -1,6 +1,6 @@
-const gulp = require('gulp');
+import gulp from 'gulp';
 
-module.exports = () => {
+export function copy() {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/@popperjs/core/dist/umd/popper.js',
