@@ -2,11 +2,11 @@ import gulp from 'gulp';
 import nunjucksRender from 'gulp-nunjucks-render';
 import * as journalize from 'journalize';
 import browserSync from 'browser-sync';
-import config from '../project.config.json';
+import config from '../project.config.json' assert {type: 'json'};
 import log from 'fancy-log';
 import fs from 'fs';
 
-export function nunjucks(resolve, reject) {
+function nunjucks(resolve, reject) {
   // nunjucks environment setup
   const manageEnv = function (env) {
     // loop over config vars to add to nunjucks global env
@@ -35,7 +35,8 @@ export function nunjucks(resolve, reject) {
           let key = file.split('.json')[0];
 
           // and the value the file contents
-          let value = require('../' + data_dir + key);
+          let fileContents = fs.readFileSync(data_dir + file);
+          let value = JSON.parse(fileContents);
 
           // and add to our global environment
           env.addGlobal(key, value);
@@ -71,3 +72,7 @@ export function nunjucks(resolve, reject) {
     .pipe(browserSync.stream());
   resolve();
 };
+
+gulp.task('nunjucks', nunjucks)
+
+export default nunjucks;

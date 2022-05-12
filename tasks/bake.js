@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import nunjucksRender from 'gulp-nunjucks-render';
-import config from '../project.config.json';
+import config from '../project.config.json' assert {type: 'json'};
 
 import gulpData from 'gulp-data';
 import rename from 'gulp-rename';
@@ -11,7 +11,7 @@ import isValidGlob from 'is-valid-glob';
 import * as journalize from 'journalize';
 import fs from 'fs';
 
-export function bake(resolve) {
+function bake(resolve) {
   const dataDir = 'src/data/';
 
   // modularize manageEnv from nunjucks.js
@@ -24,10 +24,8 @@ export function bake(resolve) {
       }
     }
 
-    let data_dir = 'src/data/';
-
     // loop over the directory of files
-    fs.readdir(data_dir, function (err, files) {
+    fs.readdir(dataDir, function (err, files) {
       // handle errors
       if (err) {
         console.error('Could not list the directory.', err);
@@ -42,7 +40,8 @@ export function bake(resolve) {
           let key = file.split('.json')[0];
 
           // and the value the file contents
-          let value = require('../' + data_dir + key);
+          let fileContents = fs.readFileSync(dataDir + file);
+          let value = JSON.parse(fileContents);
 
           // and add to our global environment
           env.addGlobal(key, value);
@@ -79,7 +78,10 @@ export function bake(resolve) {
       );
     }
 
-    let data = require(`../${dataDir}${bake.data}.json`);
+    // and the value the file contents
+    let fileContents = fs.readFileSync(`${dataDir}${bake.data}.json`);
+    let data = JSON.parse(fileContents);
+
     if (typeof data === 'object') {
       data = data[bake.array];
     }
@@ -124,3 +126,7 @@ export function bake(resolve) {
 
   resolve();
 };
+
+gulp.task('bake', bake)
+
+export default bake;

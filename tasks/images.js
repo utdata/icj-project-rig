@@ -4,7 +4,7 @@ import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg'; 
 import imageminPngquant from 'imagemin-pngquant';
 
-export function images() {
+function images() {
   return gulp.src('./src/img/**/*')
     .pipe(cache(imagemin([
       // lossy jpg compression
@@ -19,3 +19,7 @@ export function images() {
   ])))
     .pipe(gulp.dest('./docs/img'))
 };
+
+gulp.task('images', images)
+
+export default images;

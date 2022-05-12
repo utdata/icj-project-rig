@@ -10,7 +10,7 @@ import cssnano from 'cssnano';
 import log from 'fancy-log';
 import browserSync from 'browser-sync';
 
-export function styles() {
+function styles() {
   const AUTOPREFIXER_BROWSERS = [
     'ie >= 10',
     'ie_mob >= 10',
@@ -40,3 +40,7 @@ export function styles() {
     .pipe(gulp.dest('./docs/css'))
     .pipe(browserSync.stream());
 };
+
+gulp.task('styles', styles)
+
+export default styles;

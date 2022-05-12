@@ -5,7 +5,7 @@ import babel from 'gulp-babel';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
  
-export function scripts() {
+function scripts() {
   return gulp.src([
     './src/js/main.js'
   ])
@@ -17,3 +17,7 @@ export function scripts() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./docs/js'))
 };
+
+gulp.task('scripts', scripts)
+
+export default scripts;

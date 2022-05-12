@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 
-export function copy() {
+function copy() {
   return gulp.src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/@popperjs/core/dist/umd/popper.js',
@@ -8,3 +8,7 @@ export function copy() {
   ])
     .pipe(gulp.dest('./docs/js'))
 };
+
+gulp.task('copy', copy)
+
+export default copy;
