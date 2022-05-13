@@ -1,5 +1,10 @@
-const cache = require('gulp-cache');
+import gulp from 'gulp';
+import cache from 'gulp-cache';
 
-module.exports = () => {
+function clear() {
   return cache.clearAll()
 };
+
+gulp.task('clear', clear)
+
+export default clear;

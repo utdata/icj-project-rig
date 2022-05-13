@@ -8,6 +8,8 @@ import images from './tasks/images.js';
 import nunjucks from './tasks/nunjucks.js';
 import bake from './tasks/bake.js';
 import serve from './tasks/serve.js';
+import clear from './tasks/clear.js';
+import fetch from './tasks/fetch.js';
 
 // default tasks
 gulp.task(
