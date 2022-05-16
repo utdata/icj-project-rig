@@ -1,47 +1,43 @@
 // native
-const path = require("path");
+import path from 'path';
 
 // packages
-const colors = require("ansi-colors");
-const fs = require("fs-extra");
+import gulp from 'gulp';
+import colors from 'ansi-colors';
+import fs from 'fs-extra';
 
 // internal
-const { google } = require("googleapis");
-const { docToArchieML } = require("@newswire/doc-to-archieml");
-const { sheetToData } = require("@newswire/sheet-to-data");
-const config = require("../project.config.json");
-
-module.exports = (resolve, reject) => {
-  getData();
-  resolve();
-};
+import { google } from 'googleapis';
+import { docToArchieML } from '@newswire/doc-to-archieml';
+import { sheetToData } from '@newswire/sheet-to-data';
+import config from '../project.config.json' assert {type: 'json'};
 
 async function getData() {
   const auth = await google.auth.getClient({
     scopes: [
-      "https://www.googleapis.com/auth/documents.readonly",
-      "https://www.googleapis.com/auth/spreadsheets.readonly",
+      'https://www.googleapis.com/auth/documents.readonly',
+      'https://www.googleapis.com/auth/spreadsheets.readonly',
     ],
   });
   const { files } = config;
   for (const file of files) {
-    const filepath = path.join("src/data", `${file.name}.json`);
+    const filepath = path.join('src/data', `${file.name}.json`);
 
     let data;
     let color;
 
     switch (file.type) {
-      case "doc":
+      case 'doc':
         data = await docToArchieML({ documentId: file.fileId, auth });
-        color = "magenta";
+        color = 'magenta';
         break;
-      case "sheet":
+      case 'sheet':
         data = await sheetToData({ spreadsheetId: file.fileId, auth });
-        color = "cyan";
+        color = 'cyan';
         break;
       default:
         throw new Error(
-          `No data fetching method found for type "${file.type}"`
+          `No data fetching method found for type '${file.type}'`
         );
     }
 
@@ -54,3 +50,12 @@ async function getData() {
 function logDownload(fileName, fileId, color) {
   console.log(colors[color](`Downloaded \`${fileName}\` (${fileId})`));
 }
+
+function fetch(resolve, reject) {
+  getData();
+  resolve();
+};
+
+gulp.task('fetch', fetch)
+
+export default fetch;

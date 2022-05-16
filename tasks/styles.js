@@ -1,14 +1,16 @@
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const newer = require('gulp-newer');
-const sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
-const cssnano = require('cssnano');
-const log = require('fancy-log');
-const browserSync = require('browser-sync').create();
+import gulp from 'gulp';
+import postcss from 'gulp-postcss';
+import newer from 'gulp-newer';
+import sourcemaps from 'gulp-sourcemaps';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+var sass = gulpSass(dartSass);
+import autoprefixer from 'gulp-autoprefixer';
+import cssnano from 'cssnano';
+import log from 'fancy-log';
+import browserSync from 'browser-sync';
 
-module.exports = () => {
+function styles() {
   const AUTOPREFIXER_BROWSERS = [
     'ie >= 10',
     'ie_mob >= 10',
@@ -23,7 +25,7 @@ module.exports = () => {
 
   var plugins = [
     cssnano()
-    ];
+  ];
   
   return gulp.src([
     'src/scss/*.scss'
@@ -37,4 +39,8 @@ module.exports = () => {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./docs/css'))
     .pipe(browserSync.stream());
-  };
+};
+
+gulp.task('styles', styles)
+
+export default styles;

@@ -1,11 +1,15 @@
-const gulp = require('gulp');
-const gulpIf = require('gulp-if');
-const eslint = require('gulp-eslint');
-const browserSync = require('browser-sync');
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import eslint from 'gulp-eslint';
+import browserSync from 'browser-sync';
  
-module.exports = () => {
+function lint() {
   return gulp.src(['src/js/**/*.js','!node_modules/**'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(gulpIf(!browserSync.active, eslint.failAfterError()))
 };
+
+gulp.task('lint', lint)
+
+export default lint;

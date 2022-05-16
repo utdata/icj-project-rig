@@ -1,7 +1,11 @@
-const gulp = require("gulp");
-const del = require("del");
+import gulp from 'gulp';
+import del from 'del';
 
-module.exports = (resolve, reject) => {
-  del(["docs/*"], { dot: true });
+function clean(resolve, reject) {
+  del(['docs/*'], { dot: true });
   resolve();
 };
+
+gulp.task('clean', clean)
+
+export default clean;
