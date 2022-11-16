@@ -14,7 +14,7 @@ function serve() {
     port: 3000,
   }),
   gulp.watch(
-    ['src/njk/**/*.html', 'src/njk/**/*.njk', 'src/njk/**/*.json'],
+    ['src/njk/**/*.html', 'src/njk/**/*.njk', 'src/njk/**/*.json', 'src/data/**/*.json'],
     gulp.series('nunjucks', 'bake', browserSyncReload)
   );
   gulp.watch(
