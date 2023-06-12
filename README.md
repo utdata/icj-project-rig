@@ -7,6 +7,9 @@ This project rig was developed for the [Intro to Coding for Journalists](https:/
 
 The development concepts used are similar to rigs used by news graphics teams in newsrooms like The Texas Tribune, Los Angeles Times and NPR.
 
+## Required programs
+- Install npm version `9.7.1`: [Link](https://www.npmjs.com/package/npm)
+
 ## Features
 
 This Node-based rig uses a Gulp workflow configured for Github Pages publishing. Features include:
@@ -139,7 +142,8 @@ The process requires three things:
 - Configuration to pair the layout with the data: This is set up in the `project.config.json` file, which has several requirements:
 
 ```json
-"to_bake": [
+{
+  "to_bake": [
     {
       "template": "bake-book",
       "data": "library",
@@ -148,6 +152,7 @@ The process requires three things:
       "path": "books"
     }
   ]
+}
 ```
 
 - **`template`** is the name of the template file stored in `src/njk/_templates` that will be used to build the pages. Note you don't need the extension in name.
@@ -203,6 +208,7 @@ To use Google Drive to store and "fetch" data, you have to configure a service a
       type: 'sheet',
       name: 'data',
     }
+  ]
 }
 ```
 
