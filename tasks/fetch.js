@@ -10,14 +10,14 @@ import fs from 'fs-extra';
 import { google } from 'googleapis';
 import { docToArchieML } from '@newswire/doc-to-archieml';
 import { sheetToData } from '@newswire/sheet-to-data';
-import config from '../project.config.json' assert {type: 'json'};
+import config from '../project.config.json' assert { type: 'json' };
 
 async function getData() {
   const auth = await google.auth.getClient({
     scopes: [
       'https://www.googleapis.com/auth/documents.readonly',
-      'https://www.googleapis.com/auth/spreadsheets.readonly',
-    ],
+      'https://www.googleapis.com/auth/spreadsheets.readonly'
+    ]
   });
   const { files } = config;
   for (const file of files) {
@@ -54,8 +54,8 @@ function logDownload(fileName, fileId, color) {
 function fetch(resolve, reject) {
   getData();
   resolve();
-};
+}
 
-gulp.task('fetch', fetch)
+gulp.task('fetch', fetch);
 
 export default fetch;
