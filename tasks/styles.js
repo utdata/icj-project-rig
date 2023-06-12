@@ -4,7 +4,8 @@ import newer from 'gulp-newer';
 import sourcemaps from 'gulp-sourcemaps';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-var sass = gulpSass(dartSass);
+
+const sass = gulpSass(dartSass);
 import autoprefixer from 'gulp-autoprefixer';
 import cssnano from 'cssnano';
 import log from 'fancy-log';
@@ -23,10 +24,10 @@ function styles() {
     'bb >= 10'
   ];
 
-  var plugins = [
+  const plugins = [
     cssnano()
   ];
-  
+
   return gulp.src([
     'src/scss/*.scss'
   ])
