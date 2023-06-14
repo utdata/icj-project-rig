@@ -12,7 +12,7 @@ The development concepts used are similar to rigs used by news graphics teams in
 
 ## Features
 
-This Node-based rig uses a Gulp workflow configured for Github Pages publishing. Features include:
+This Node-based rig uses a Gulp workflow configured for GitHub Pages publishing. Features include:
 
 - [Bootstrap 5.1.3](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
 - [Nunjucks Templating](https://mozilla.github.io/nunjucks/templating.html) with [`journalize`](https://www.npmjs.com/package/journalize) filters.
@@ -28,7 +28,7 @@ To start a new project:
 - Open Visual Studio Code into that folder and open the integrated Terminal.
 - Run `degit utdata/icj-project-rig`.
 - Initialize your repo with `git init`, add and commit the files.
-- Create your Github repo and connect them. Your Github repo and local repo should have the same name. The instructions for pushing an existing local repo to your Github repo will appear after you create the repo on Github, but here are the instructions again:
+- Create your GitHub repo and connect them. Your GitHub repo and local repo should have the same name. The instructions for pushing an existing local repo to your GitHub repo will appear after you create the repo on GitHub, but here are the instructions again:
   - Run `git remote add origin https://github.com/<github-username>/<github-repo-name>` in your local repo
   - `git branch -M main`
   - `git push -u origin main`
@@ -92,9 +92,9 @@ To create a new webpage, just add a new file in `src/njk/` with the `.njk` exten
 
 ### Deployment
 
-This project is designed to bundle the finished website into the `docs` folder, which can then be published anywhere you have a server. We use and commit our `docs` distribution folder to Github to take advantage of [Github Pages](https://help.github.com/categories/github-pages-basics/) for free hosting of the site.
+This project is designed to bundle the finished website into the `docs` folder, which can then be published anywhere you have a server. We use and commit our `docs` distribution folder to GitHub to take advantage of [GitHub Pages](https://help.github.com/categories/github-pages-basics/) for free hosting of the site.
 
-Review [Github Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `master/docs/` folder.
+Review [GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `master/docs/` folder.
 
 ## Advanced Nunjucks features
 
