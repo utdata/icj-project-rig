@@ -20,7 +20,8 @@ This Node-based rig uses a Gulp workflow configured for GitHub Pages publishing.
 All the necessary installations are handled in [icj-setting-up](https://github.com/utdata/icj-setting-up).
 
 To start a new project:
-
+- Download Node.js version `16.18.0`.
+  - I would recommend using [NVM](https://heynode.com/tutorial/install-nodejs-locally-nvm/) to manage your node versions, as they tend to be different in every project.
 - Create a project folder for all your code.
 - Open Visual Studio Code into that folder and open the integrated Terminal.
 - Run `degit utdata/icj-project-rig`.
