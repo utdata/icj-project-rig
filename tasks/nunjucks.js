@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import nunjucksRender from 'gulp-nunjucks-render';
 import * as journalize from 'journalize';
 import browserSync from 'browser-sync';
-import config from '../project.config.json' assert {type: 'json'};
+import config from '../project.config.json' assert { type: 'json' };
 import log from 'fancy-log';
 import fs from 'fs';
 
@@ -64,15 +64,15 @@ function nunjucks(resolve, reject) {
     .pipe(
       nunjucksRender({
         path: 'src/njk',
-        manageEnv: manageEnv,
+        manageEnv: manageEnv
       })
     )
     .on('error', log.error)
     .pipe(gulp.dest('docs'))
     .pipe(browserSync.stream());
   resolve();
-};
+}
 
-gulp.task('nunjucks', nunjucks)
+gulp.task('nunjucks', nunjucks);
 
 export default nunjucks;
