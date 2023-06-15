@@ -15,6 +15,9 @@
   "keywords": [],
   "author": "Christian McDonald <christian.mcdonald@utexas.edu>",
   "license": "ISC",
+  "eslintIgnore": [
+    "docs/"
+  ],
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
