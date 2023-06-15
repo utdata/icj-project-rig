@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import nunjucksRender from 'gulp-nunjucks-render';
-import config from '../project.config.json' assert { type: 'json' };
 
 import gulpData from 'gulp-data';
 import rename from 'gulp-rename';
@@ -10,6 +9,8 @@ import isValidGlob from 'is-valid-glob';
 // modularize manageEnv
 import * as journalize from 'journalize';
 import fs from 'fs';
+
+const config = fs.readJson('../project.config.json');
 
 function bake(resolve) {
   const dataDir = 'src/data/';

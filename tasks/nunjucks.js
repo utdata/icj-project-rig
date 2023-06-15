@@ -1,10 +1,11 @@
 import gulp from 'gulp';
+import fs from 'fs-extra';
 import nunjucksRender from 'gulp-nunjucks-render';
 import * as journalize from 'journalize';
 import browserSync from 'browser-sync';
-import config from '../project.config.json' assert { type: 'json' };
 import log from 'fancy-log';
-import fs from 'fs';
+
+const config = fs.readJson('../project.config.json');
 
 function nunjucks(resolve, reject) {
   // nunjucks environment setup

@@ -10,7 +10,8 @@ import fs from 'fs-extra';
 import { google } from 'googleapis';
 import { docToArchieML } from '@newswire/doc-to-archieml';
 import { sheetToData } from '@newswire/sheet-to-data';
-import config from '../project.config.json' assert { type: 'json' };
+
+const config = fs.readJson('../project.config.json');
 
 async function getData() {
   const auth = await google.auth.getClient({
