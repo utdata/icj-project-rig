@@ -77,7 +77,7 @@ This project organizes Nunjucks helper files into folders that start with `_` so
 - The file `src/njk/_templates/base.njk` is an example base template for a website. The idea is to build the framework of the site only once, even though you might have many pages.
 - Files in `src/njk/_includes/` are snippets of code used by other templates using the _include_ tag. You can see how the  `nav.njk` and `footer.njk` includes are pulled into the `base.njk` template.
 
-Some of the other files in those folders are discussed as advanced features later.
+Some other files in those folders are discussed as advanced features later.
 
 ### Pages
 
