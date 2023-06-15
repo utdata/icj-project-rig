@@ -7,8 +7,6 @@ import log from 'fancy-log';
 
 const config = fs.readJson('../project.config.json');
 
-const config = fs.readJson('../project.config.json');
-
 function nunjucks(resolve, reject) {
   // nunjucks environment setup
   const manageEnv = function (env) {
