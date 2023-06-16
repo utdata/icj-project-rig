@@ -23,13 +23,10 @@ function styles() {
     'bb >= 10'
   ];
 
-  var plugins = [
-    cssnano()
-  ];
-  
-  return gulp.src([
-    'src/scss/*.scss'
-  ])
+  var plugins = [cssnano()];
+
+  return gulp
+    .src(['src/scss/*.scss'])
     .pipe(newer('./docs/css'))
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -39,8 +36,8 @@ function styles() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./docs/css'))
     .pipe(browserSync.stream());
-};
+}
 
-gulp.task('styles', styles)
+gulp.task('styles', styles);
 
 export default styles;

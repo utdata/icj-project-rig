@@ -9,7 +9,7 @@ The development concepts used are similar to rigs used by news graphics teams in
 
 ## Features
 
-This Node-based rig uses a Gulp workflow configured for Github Pages publishing. Features include:
+This Node-based rig uses a Gulp workflow configured for GitHub Pages publishing. Features include:
 
 - [Bootstrap 5.1.3](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
 - [Nunjucks Templating](https://mozilla.github.io/nunjucks/templating.html) with [`journalize`](https://www.npmjs.com/package/journalize) filters.
@@ -20,12 +20,13 @@ This Node-based rig uses a Gulp workflow configured for Github Pages publishing.
 All the necessary installations are handled in [icj-setting-up](https://github.com/utdata/icj-setting-up).
 
 To start a new project:
-
+- Download Node.js version `16.18.0`.
+  - I would recommend using [NVM](https://heynode.com/tutorial/install-nodejs-locally-nvm/) to manage your node versions, as they tend to be different in every project.
 - Create a project folder for all your code.
 - Open Visual Studio Code into that folder and open the integrated Terminal.
 - Run `degit utdata/icj-project-rig`.
 - Initialize your repo with `git init`, add and commit the files.
-- Create your Github repo and connect them. Your Github repo and local repo should have the same name. The instructions for pushing an existing local repo to your Github repo will appear after you create the repo on Github, but here are the instructions again:
+- Create your GitHub repo and connect them. Your GitHub repo and local repo should have the same name. The instructions for pushing an existing local repo to your GitHub repo will appear after you create the repo on GitHub, but here are the instructions again:
   - Run `git remote add origin https://github.com/<github-username>/<github-repo-name>` in your local repo
   - `git branch -M main`
   - `git push -u origin main`
@@ -77,7 +78,7 @@ This project organizes Nunjucks helper files into folders that start with `_` so
 - The file `src/njk/_templates/base.njk` is an example base template for a website. The idea is to build the framework of the site only once, even though you might have many pages.
 - Files in `src/njk/_includes/` are snippets of code used by other templates using the _include_ tag. You can see how the  `nav.njk` and `footer.njk` includes are pulled into the `base.njk` template.
 
-Some of the other files in those folders are discussed as advanced features later.
+Some other files in those folders are discussed as advanced features later.
 
 ### Pages
 
@@ -89,9 +90,9 @@ To create a new webpage, just add a new file in `src/njk/` with the `.njk` exten
 
 ### Deployment
 
-This project is designed to bundle the finished website into the `docs` folder, which can then be published anywhere you have a server. We use and commit our `docs` distribution folder to Github to take advantage of [Github Pages](https://help.github.com/categories/github-pages-basics/) for free hosting of the site.
+This project is designed to bundle the finished website into the `docs` folder, which can then be published anywhere you have a server. We use and commit our `docs` distribution folder to GitHub to take advantage of [GitHub Pages](https://help.github.com/categories/github-pages-basics/) for free hosting of the site.
 
-Review [Github Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `master/docs/` folder.
+Review [GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `master/docs/` folder.
 
 ## Advanced Nunjucks features
 
@@ -139,7 +140,8 @@ The process requires three things:
 - Configuration to pair the layout with the data: This is set up in the `project.config.json` file, which has several requirements:
 
 ```json
-"to_bake": [
+{
+  "to_bake": [
     {
       "template": "bake-book",
       "data": "library",
@@ -148,6 +150,7 @@ The process requires three things:
       "path": "books"
     }
   ]
+}
 ```
 
 - **`template`** is the name of the template file stored in `src/njk/_templates` that will be used to build the pages. Note you don't need the extension in name.
@@ -203,6 +206,7 @@ To use Google Drive to store and "fetch" data, you have to configure a service a
       type: 'sheet',
       name: 'data',
     }
+  ]
 }
 ```
 
@@ -222,7 +226,7 @@ For more information about how the Google Sheets processor works, check out the 
 
 Google Sheets used may potentially require some additional configuration. Each sheet (or tab) in a Google Sheet is converted separately by the kit, and keyed-off in the output object by the _name of the sheet_.
 
-By default it treats every sheet in a Google Sheet as being formatted as a `table`. In other words, every _row_ is considered an item, and the _header row_ determines the key of each value in a _column_.
+By default, it treats every sheet in a Google Sheet as being formatted as a `table`. In other words, every _row_ is considered an item, and the _header row_ determines the key of each value in a _column_.
 
 The Google Sheets processor also supports a `key-value` format as popularized by [`copytext`](https://github.com/nprapps/copytext) ([and its Node.js counterpart](https://github.com/rdmurphy/node-copytext)). This treats everything in the _first column_ as the key, and everything in the _second column_ as the value matched to its key. Every other column is _ignored_.
 

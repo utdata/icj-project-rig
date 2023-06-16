@@ -1,6 +1,6 @@
 import gulp from 'gulp';
+import fs from 'fs-extra';
 import nunjucksRender from 'gulp-nunjucks-render';
-import config from '../project.config.json' assert {type: 'json'};
 
 import gulpData from 'gulp-data';
 import rename from 'gulp-rename';
@@ -9,7 +9,8 @@ import isValidGlob from 'is-valid-glob';
 
 // modularize manageEnv
 import * as journalize from 'journalize';
-import fs from 'fs';
+
+const config = fs.readJsonSync('./project.config.json');
 
 function bake(resolve) {
   const dataDir = 'src/data/';
@@ -110,13 +111,13 @@ function bake(resolve) {
         .pipe(
           nunjucksRender({
             path: 'src/njk',
-            manageEnv: manageEnv,
+            manageEnv: manageEnv
           })
         )
         .pipe(
           rename({
             basename: d[bake.slug],
-            extname: '.html',
+            extname: '.html'
           })
         )
         .pipe(gulp.dest(`docs/${bake.path}`))
@@ -125,8 +126,8 @@ function bake(resolve) {
   });
 
   resolve();
-};
+}
 
-gulp.task('bake', bake)
+gulp.task('bake', bake);
 
 export default bake;
