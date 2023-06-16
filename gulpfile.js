@@ -26,3 +26,7 @@ gulp.task(
 
 // run default tasks and then serve locally
 gulp.task('dev', gulp.series('default', serve));
+
+// Add non-grouped tasks so that they are not marked as unused imports
+gulp.task(clear);
+gulp.task(fetch);
