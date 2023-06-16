@@ -15,14 +15,12 @@ import fetch from './tasks/fetch.js';
 gulp.task(
   'default',
   gulp.series(
-    bake,
     clean,
-    clear,
+    styles,
     copy,
-    fetch,
     gulp.parallel(lint, scripts, images),
     nunjucks,
-    styles
+    bake
   )
 );
 
