@@ -5,7 +5,7 @@ import * as journalize from 'journalize';
 import browserSync from 'browser-sync';
 import log from 'fancy-log';
 
-const config = fs.readJson('../project.config.json');
+const config = fs.readJsonSync('./project.config.json');
 
 function nunjucks(resolve, reject) {
   // nunjucks environment setup

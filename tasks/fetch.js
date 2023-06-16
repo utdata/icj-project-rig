@@ -11,7 +11,7 @@ import { google } from 'googleapis';
 import { docToArchieML } from '@newswire/doc-to-archieml';
 import { sheetToData } from '@newswire/sheet-to-data';
 
-const config = fs.readJson('../project.config.json');
+const config = fs.readJsonSync('./project.config.json');
 
 async function getData() {
   const auth = await google.auth.getClient({
