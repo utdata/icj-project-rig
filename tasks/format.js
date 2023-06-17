@@ -7,7 +7,7 @@ function format() {
       './src/js/*.js',
       './docs/books/*.html',
       './docs/index.html',
-      './src/js/**/*.js',
+      './src/js/*.js',
       './src/data/*.json'
     ])
     .pipe(prettier({ config: '.prettierrc.json' }))
