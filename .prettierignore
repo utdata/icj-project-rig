@@ -4,4 +4,6 @@ README.md
 .github
 
 # Directories and files to ignore
-docs/
+docs/css
+docs/img
+docs/js
