@@ -28,7 +28,7 @@ function serve() {
   );
   gulp.watch(
     ['src/js/**/*.js'],
-    gulp.series('scripts', 'format', browserSyncReload)
+    gulp.series('format', 'scripts', browserSyncReload)
   );
   gulp.watch(['src/img/**/*'], gulp.series('images', browserSyncReload));
 }
