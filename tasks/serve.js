@@ -13,7 +13,7 @@ function serve() {
     notify: false,
     server: 'docs',
     port: 3000
-  })
+  });
   gulp.watch(
     [
       'src/njk/**/*.html',

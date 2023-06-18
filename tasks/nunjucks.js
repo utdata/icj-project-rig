@@ -5,14 +5,17 @@ import gulp from 'gulp';
 import log from 'fancy-log';
 import nunjucksRender from 'gulp-nunjucks-render';
 
+// eslint-disable-next-line no-sync
 const config = fs.readJsonSync('./project.config.json');
 
 function nunjucks(resolve) {
   // nunjucks environment setup
+  // eslint-disable-next-line func-style
   const manageEnv = function (env) {
     // loop over config vars to add to nunjucks global env
     // which can be added to project.config.json
     for (const k in config) {
+      // eslint-disable-next-line no-prototype-builtins
       if (config.hasOwnProperty(k)) {
         env.addGlobal(k, config[k]);
       }
@@ -25,17 +28,19 @@ function nunjucks(resolve) {
       // handle errors
       if (err) {
         console.error('Could not list the directory.', err);
+        // eslint-disable-next-line no-process-exit, no-undef
         process.exit(1);
       }
 
       // for each file
-      files.forEach((file, index) => {
+      files.forEach((file) => {
         // if it's a .json file
         if (file.endsWith('json')) {
           // make the key the file name
           const key = file.split('.json')[0];
 
           // and the value the file contents
+          // eslint-disable-next-line no-sync
           const fileContents = fs.readFileSync(dataDir + file);
           const value = JSON.parse(fileContents);
 
@@ -46,6 +51,7 @@ function nunjucks(resolve) {
     });
 
     // set up journalize
+    // eslint-disable-next-line guard-for-in
     for (const key in journalize) {
       const func = journalize[key];
       if (typeof func === 'function') {
