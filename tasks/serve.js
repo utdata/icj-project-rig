@@ -8,11 +8,12 @@ function browserSyncReload(done) {
 }
 
 function serve() {
+  // eslint-disable-next-line no-unused-expressions
   browserSync({
     notify: false,
     server: 'docs',
     port: 3000
-  }),
+  })
   gulp.watch(
     [
       'src/njk/**/*.html',
