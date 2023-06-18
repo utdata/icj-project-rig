@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import cache from 'gulp-cache';
+import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';
@@ -17,7 +17,7 @@ function images() {
           // png compression
           imageminPngquant({
             speed: 1,
-            quality: 98 //lossy settings
+            quality: 98 // lossy settings
           })
         ])
       )

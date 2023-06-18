@@ -1,7 +1,7 @@
+import browserSync from 'browser-sync';
+import eslint from 'gulp-eslint';
 import gulp from 'gulp';
 import gulpIf from 'gulp-if';
-import eslint from 'gulp-eslint';
-import browserSync from 'browser-sync';
 
 function lint() {
   return gulp

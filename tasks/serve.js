@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import browserSync from 'browser-sync';
+import gulp from 'gulp';
 
 // BrowserSync Reload
 function browserSyncReload(done) {
@@ -8,20 +8,21 @@ function browserSyncReload(done) {
 }
 
 function serve() {
+  // eslint-disable-next-line no-unused-expressions
   browserSync({
     notify: false,
     server: 'docs',
     port: 3000
-  }),
-    gulp.watch(
-      [
-        'src/njk/**/*.html',
-        'src/njk/**/*.njk',
-        'src/njk/**/*.json',
-        'src/data/**/*.json'
-      ],
-      gulp.series('nunjucks', 'bake', browserSyncReload)
-    );
+  });
+  gulp.watch(
+    [
+      'src/njk/**/*.html',
+      'src/njk/**/*.njk',
+      'src/njk/**/*.json',
+      'src/data/**/*.json'
+    ],
+    gulp.series('nunjucks', 'bake', browserSyncReload)
+  );
   gulp.watch(
     ['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/**/*.scss'],
     gulp.series('styles', browserSyncReload)
