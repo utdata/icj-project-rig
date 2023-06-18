@@ -1,13 +1,13 @@
-import gulp from 'gulp';
-import fs from 'fs-extra';
-import nunjucksRender from 'gulp-nunjucks-render';
 import * as journalize from 'journalize';
 import browserSync from 'browser-sync';
+import fs from 'fs-extra';
+import gulp from 'gulp';
 import log from 'fancy-log';
+import nunjucksRender from 'gulp-nunjucks-render';
 
 const config = fs.readJsonSync('./project.config.json');
 
-function nunjucks(resolve, reject) {
+function nunjucks(resolve) {
   // nunjucks environment setup
   const manageEnv = function (env) {
     // loop over config vars to add to nunjucks global env
@@ -18,10 +18,10 @@ function nunjucks(resolve, reject) {
       }
     }
 
-    const data_dir = 'src/data/';
+    const dataDir = 'src/data/';
 
     // loop over the directory of files
-    fs.readdir(data_dir, (err, files) => {
+    fs.readdir(dataDir, (err, files) => {
       // handle errors
       if (err) {
         console.error('Could not list the directory.', err);
@@ -36,7 +36,7 @@ function nunjucks(resolve, reject) {
           const key = file.split('.json')[0];
 
           // and the value the file contents
-          const fileContents = fs.readFileSync(data_dir + file);
+          const fileContents = fs.readFileSync(dataDir + file);
           const value = JSON.parse(fileContents);
 
           // and add to our global environment

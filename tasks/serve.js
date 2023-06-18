@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import browserSync from 'browser-sync';
+import gulp from 'gulp';
 
 // BrowserSync Reload
 function browserSyncReload(done) {

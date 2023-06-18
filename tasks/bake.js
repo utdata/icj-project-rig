@@ -1,14 +1,11 @@
-import gulp from 'gulp';
-import fs from 'fs-extra';
-import nunjucksRender from 'gulp-nunjucks-render';
-
-import gulpData from 'gulp-data';
-import rename from 'gulp-rename';
-import browserSync from 'browser-sync';
-import isValidGlob from 'is-valid-glob';
-
-// modularize manageEnv
 import * as journalize from 'journalize';
+import browserSync from 'browser-sync';
+import fs from 'fs-extra';
+import gulp from 'gulp';
+import gulpData from 'gulp-data';
+import isValidGlob from 'is-valid-glob';
+import nunjucksRender from 'gulp-nunjucks-render';
+import rename from 'gulp-rename';
 
 const config = fs.readJsonSync('./project.config.json');
 

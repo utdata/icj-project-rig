@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import cache from 'gulp-cache';
+import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';

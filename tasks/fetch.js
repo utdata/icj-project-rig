@@ -1,21 +1,10 @@
-// native
-import path from 'path';
-
-// packages
-import gulp from 'gulp';
 import colors from 'ansi-colors';
+import { docToArchieML } from '@newswire/doc-to-archieml';
 import fs from 'fs-extra';
-
-// internal
-import {
-  google
-} from 'googleapis';
-import {
-  docToArchieML
-} from '@newswire/doc-to-archieml';
-import {
-  sheetToData
-} from '@newswire/sheet-to-data';
+import { google } from 'googleapis';
+import gulp from 'gulp';
+import path from 'path';
+import { sheetToData } from '@newswire/sheet-to-data';
 
 const config = fs.readJsonSync('./project.config.json');
 
@@ -26,9 +15,7 @@ async function getData() {
       'https://www.googleapis.com/auth/spreadsheets.readonly'
     ]
   });
-  const {
-    files
-  } = config;
+  const { files } = config;
   for (const file of files) {
     const filepath = path.join('src/data', `${file.name}.json`);
 

@@ -1,5 +1,5 @@
-import gulp from 'gulp';
 import cache from 'gulp-cache';
+import gulp from 'gulp';
 
 function clear() {
   return cache.clearAll();
