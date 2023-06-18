@@ -7,9 +7,15 @@ import colors from 'ansi-colors';
 import fs from 'fs-extra';
 
 // internal
-import { google } from 'googleapis';
-import { docToArchieML } from '@newswire/doc-to-archieml';
-import { sheetToData } from '@newswire/sheet-to-data';
+import {
+  google
+} from 'googleapis';
+import {
+  docToArchieML
+} from '@newswire/doc-to-archieml';
+import {
+  sheetToData
+} from '@newswire/sheet-to-data';
 
 const config = fs.readJsonSync('./project.config.json');
 
@@ -20,7 +26,9 @@ async function getData() {
       'https://www.googleapis.com/auth/spreadsheets.readonly'
     ]
   });
-  const { files } = config;
+  const {
+    files
+  } = config;
   for (const file of files) {
     const filepath = path.join('src/data', `${file.name}.json`);
 
@@ -29,11 +37,17 @@ async function getData() {
 
     switch (file.type) {
       case 'doc':
-        data = await docToArchieML({ documentId: file.fileId, auth });
+        data = await docToArchieML({
+          documentId: file.fileId,
+          auth
+        });
         color = 'magenta';
         break;
       case 'sheet':
-        data = await sheetToData({ spreadsheetId: file.fileId, auth });
+        data = await sheetToData({
+          spreadsheetId: file.fileId,
+          auth
+        });
         color = 'cyan';
         break;
       default:
@@ -42,7 +56,9 @@ async function getData() {
         );
     }
 
-    await fs.outputJson(filepath, data, { spaces: 2 });
+    await fs.outputJson(filepath, data, {
+      spaces: 2
+    });
 
     logDownload(file.name, file.fileId, color);
   }

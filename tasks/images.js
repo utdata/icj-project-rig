@@ -17,7 +17,7 @@ function images() {
           // png compression
           imageminPngquant({
             speed: 1,
-            quality: 98 //lossy settings
+            quality: 98 // lossy settings
           })
         ])
       )
