@@ -5,12 +5,7 @@ import browserSync from 'browser-sync';
 
 function lint() {
   return gulp
-    .src([
-      './src/js/*.js',
-      './docs/books/*.html',
-      './docs/*.html',
-      './src/js/*.js'
-    ])
+    .src(['src/js/**/*.js', '!node_modules/**'])
     .pipe(eslint({ configFile: '.eslintrc.json', fix: true }))
     .pipe(eslint.format())
     .pipe(gulpIf(!browserSync.active, eslint.failAfterError()));
