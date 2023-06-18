@@ -6,6 +6,7 @@ import gulp from 'gulp';
 import path from 'path';
 import { sheetToData } from '@newswire/sheet-to-data';
 
+// eslint-disable-next-line no-sync
 const config = fs.readJsonSync('./project.config.json');
 
 async function getData() {
@@ -24,6 +25,7 @@ async function getData() {
 
     switch (file.type) {
       case 'doc':
+        // eslint-disable-next-line no-await-in-loop
         data = await docToArchieML({
           documentId: file.fileId,
           auth
@@ -31,6 +33,7 @@ async function getData() {
         color = 'magenta';
         break;
       case 'sheet':
+        // eslint-disable-next-line no-await-in-loop
         data = await sheetToData({
           spreadsheetId: file.fileId,
           auth
@@ -43,6 +46,7 @@ async function getData() {
         );
     }
 
+    // eslint-disable-next-line no-await-in-loop
     await fs.outputJson(filepath, data, {
       spaces: 2
     });
@@ -55,7 +59,7 @@ function logDownload(fileName, fileId, color) {
   console.log(colors[color](`Downloaded \`${fileName}\` (${fileId})`));
 }
 
-function fetch(resolve, reject) {
+function fetch(resolve) {
   getData();
   resolve();
 }
