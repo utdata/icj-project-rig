@@ -268,6 +268,8 @@ Gulp is the task runner and is configured in `gulpfile.js`. Individual tasks liv
 - `gulp dev` runs the default tasks above plus `serve` for the BrowserSync server.
 - To run any specific gulp task use `gulp <name of task>`, e.g. `gulp clean`.
 
+Google authentication is handled via the Google Cloud Platform command line interface tool, [`gcloud`](https://cloud.google.com/sdk/gcloud).
+
 ### Tasks
 
 - `bake.js`: Generates detail pages from a layout and data as noted above.
