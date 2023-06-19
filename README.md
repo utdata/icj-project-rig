@@ -82,7 +82,7 @@ Some other files in those folders are discussed as advanced features later.
 
 ### Pages
 
-All **pages** are kept in the `src/njk/` folder. Each `.njk` file (including those in a nested folder that don't start with "_") will be processed and become an `.html` file in `docs/`, and therefore a webpage on your website.
+All **pages** are kept in the `src/njk/` folder. Each `.njk` file (including those in a nested folder that don't start with `_`) will be processed and become an `.html` file in `docs/`, and therefore a webpage on your website.
 
 This project includes the example `src/njk/index.njk`, which is the homepage of the website. It _extends_ `src/njk/_templates/base.njk`. Using the _block_ and _extend_ features allows you to worry about only main content of the page, as it inherits the nav and other framework from the base template. This example includes some loops to build content from the example library and bookstores data, described in detail below.
 
