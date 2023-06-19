@@ -18,12 +18,13 @@ gulp.task(
   gulp.series(
     bake,
     clean,
+    styles,
     clear,
     copy,
     fetch,
     gulp.parallel(lint, scripts, images),
     nunjucks,
-    styles
+    bake
   )
 );
 
