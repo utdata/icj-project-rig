@@ -1,8 +1,8 @@
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
 import gulp from 'gulp';
 import newer from 'gulp-newer';
 import sourcemaps from 'gulp-sourcemaps';
-import babel from 'gulp-babel';
-import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 
 function scripts() {

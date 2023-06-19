@@ -1,8 +1,10 @@
-import gulp from 'gulp';
 import del from 'del';
+import gulp from 'gulp';
 
-function clean(resolve, reject) {
-  del(['docs/*'], { dot: true });
+function clean(resolve) {
+  del(['docs/*'], {
+    dot: true
+  });
   resolve();
 }
 

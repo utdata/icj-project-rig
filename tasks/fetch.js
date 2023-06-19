@@ -1,16 +1,12 @@
-// native
-import path from 'path';
-
-// packages
-import gulp from 'gulp';
 import colors from 'ansi-colors';
-import fs from 'fs-extra';
-
-// internal
-import { google } from 'googleapis';
 import { docToArchieML } from '@newswire/doc-to-archieml';
+import fs from 'fs-extra';
+import { google } from 'googleapis';
+import gulp from 'gulp';
+import path from 'path';
 import { sheetToData } from '@newswire/sheet-to-data';
 
+// eslint-disable-next-line no-sync
 const config = fs.readJsonSync('./project.config.json');
 
 async function getData() {
@@ -29,11 +25,19 @@ async function getData() {
 
     switch (file.type) {
       case 'doc':
-        data = await docToArchieML({ documentId: file.fileId, auth });
+        // eslint-disable-next-line no-await-in-loop
+        data = await docToArchieML({
+          documentId: file.fileId,
+          auth
+        });
         color = 'magenta';
         break;
       case 'sheet':
-        data = await sheetToData({ spreadsheetId: file.fileId, auth });
+        // eslint-disable-next-line no-await-in-loop
+        data = await sheetToData({
+          spreadsheetId: file.fileId,
+          auth
+        });
         color = 'cyan';
         break;
       default:
@@ -42,7 +46,10 @@ async function getData() {
         );
     }
 
-    await fs.outputJson(filepath, data, { spaces: 2 });
+    // eslint-disable-next-line no-await-in-loop
+    await fs.outputJson(filepath, data, {
+      spaces: 2
+    });
 
     logDownload(file.name, file.fileId, color);
   }
@@ -52,7 +59,7 @@ function logDownload(fileName, fileId, color) {
   console.log(colors[color](`Downloaded \`${fileName}\` (${fileId})`));
 }
 
-function fetch(resolve, reject) {
+function fetch(resolve) {
   getData();
   resolve();
 }
