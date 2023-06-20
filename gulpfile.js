@@ -3,6 +3,7 @@ import clean from './tasks/clean.js';
 import clear from './tasks/clear.js';
 import copy from './tasks/copy.js';
 import fetch from './tasks/fetch.js';
+import format from './tasks/format.js';
 import gulp from 'gulp';
 import images from './tasks/images.js';
 import lint from './tasks/lint.js';
@@ -27,6 +28,7 @@ gulp.task(
 // run default tasks and then serve locally
 gulp.task('dev', gulp.series('default', serve));
 
-// Add non-grouped tasks so that they are not marked as unused imports
+// Allow them to be called individually
 gulp.task(clear);
 gulp.task(fetch);
+gulp.task(format);

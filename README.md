@@ -275,6 +275,7 @@ Gulp is the task runner and is configured in `gulpfile.js`. Individual tasks liv
 - `clear.js`: Clears out the gulp cache. Useful to reprocess images of the same name stuck in cache. Run `gulp clear` then re-run `gulp`.
 - `copy.js`: Used to copy production-necessary JavaScript files from `node_modules` into `docs/js`.
 - `fetch.js`: Downloads Google Drive files as data as configured in `project.config.json`.
+- `format.js`: Formats various `json`, `html`, and `js` files within the `src` and `data` folders.
 - `images.js`: Optimize images using [`gulp-imagemin`](https://www.npmjs.com/package/gulp-imagemin) and [`imagemin-mozjpeg`](https://www.npmjs.com/package/imagemin-mozjpeg) packages.
 - `lint.js`: Checks syntax of your (optionally ES6) javascript in `/src/js/` using [`gulp-eslint`](https://www.npmjs.com/package/gulp-eslint) -- it's a good idea to have an eslint package installed in your text editor of choice, as well.
 - `nunjucks.js`: Builds out html pages using [`gulp-nunjucks-render`](https://github.com/carlosl/gulp-nunjucks-render) (see notes below).
