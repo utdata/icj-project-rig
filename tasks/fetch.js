@@ -16,6 +16,7 @@ async function getData() {
       'https://www.googleapis.com/auth/spreadsheets.readonly'
     ]
   });
+
   const { files } = config;
   for (const file of files) {
     const filepath = path.join('src/data', `${file.name}.json`);

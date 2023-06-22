@@ -1,10 +1,8 @@
-import del from 'del';
+import { deleteSync } from 'del';
 import gulp from 'gulp';
 
 function clean(resolve) {
-  del(['docs/*'], {
-    dot: true
-  });
+  deleteSync(['docs/*']);
   resolve();
 }
 
