@@ -17,17 +17,15 @@ async function getData() {
     let data;
     let color;
     let response;
-    let url;
 
     switch (file.type) {
       case 'doc':
-        url = `https://docs.google.com/document/d/${file.fileId}/export?format=txt`;
         // eslint-disable-next-line no-await-in-loop
-        response = await axios.get(url);
-        console.log(response.data);
+        response = await axios.get(
+          `https://docs.google.com/document/d/${file.fileId}/export?format=txt`
+        );
         color = 'magenta';
         data = archieML.load(response.data);
-        console.log(data);
 
         // eslint-disable-next-line no-await-in-loop
         await fs.outputJson(filepath, data, {
@@ -37,12 +35,11 @@ async function getData() {
         logDownload(file.name, file.fileId, color);
         break;
       case 'sheet':
-        console.log('lol');
         color = 'cyan';
-        url = `https://docs.google.com/spreadsheets/d/${file.fileId}/export?format=csv`;
         // eslint-disable-next-line no-await-in-loop
-        response = await axios.get(url);
-        console.log(response.data);
+        response = await axios.get(
+          `https://docs.google.com/spreadsheets/d/${file.fileId}/export?format=csv`
+        );
         color = 'magenta';
 
         data = csv()
