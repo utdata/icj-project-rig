@@ -29,6 +29,7 @@
     "axios": "^1.4.0",
     "browser-sync": "^2.27.7",
     "cssnano": "^6.0.1",
+    "csvtojson": "^2.0.10",
     "del": "^7.0.0",
     "eslint": "^8.9.0",
     "eslint-plugin-compat": "^4.1.4",
