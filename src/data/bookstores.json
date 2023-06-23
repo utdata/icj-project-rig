@@ -7,7 +7,7 @@
       "address": "603 N Lamar Blvd",
       "city": "Austin",
       "state": "TX",
-      "zip": 78703
+      "zip": "78703"
     },
     {
       "name": "Resistencia Bookstore",
@@ -16,7 +16,7 @@
       "address": "2000 Thrasher Ln",
       "city": "Austin",
       "state": "TX",
-      "zip": 78741
+      "zip": "78741"
     },
     {
       "name": "Malvern Books",
@@ -25,7 +25,7 @@
       "address": "613 W 29th St",
       "city": "Austin",
       "state": "TX",
-      "zip": 78705
+      "zip": "78705"
     },
     {
       "name": "Monkeywrench Books",
@@ -34,7 +34,7 @@
       "address": "110 N Loop Blvd E",
       "city": "Austin",
       "state": "TX",
-      "zip": 78751
+      "zip": "78751"
     },
     {
       "name": "Brave New Books",
@@ -43,7 +43,7 @@
       "address": "1904 Guadalupe St # B",
       "city": "Austin",
       "state": "TX",
-      "zip": 78705
+      "zip": "78705"
     },
     {
       "name": "BookWoman",
@@ -52,7 +52,7 @@
       "address": "5501 N Lamar Blvd",
       "city": "Austin",
       "state": "TX",
-      "zip": 78751
+      "zip": "78751"
     },
     {
       "name": "Balcones Books",
@@ -61,7 +61,7 @@
       "address": "5430, 3313 Hancock Dr",
       "city": "Austin",
       "state": "TX",
-      "zip": 78731
+      "zip": "78731"
     },
     {
       "name": "Recycled Reads",
@@ -70,7 +70,7 @@
       "address": "5335 Burnet Rd",
       "city": "Austin",
       "state": "TX",
-      "zip": 78756
+      "zip": "78756"
     },
     {
       "name": "South Congress Books",
@@ -79,7 +79,7 @@
       "address": "1608 S Congress Ave",
       "city": "Austin",
       "state": "TX",
-      "zip": 78704
+      "zip": "78704"
     },
     {
       "name": "12th Street Books",
@@ -88,7 +88,7 @@
       "address": "827 W 12th St",
       "city": "Austin",
       "state": "TX",
-      "zip": 78701
+      "zip": "78701"
     }
   ]
 }
