@@ -35,12 +35,11 @@ async function getData() {
         logDownload(file.name, file.fileId, color);
         break;
       case 'sheet':
-        color = 'cyan';
         // eslint-disable-next-line no-await-in-loop
         response = await axios.get(
           `https://docs.google.com/spreadsheets/d/${file.fileId}/export?format=csv`
         );
-        color = 'magenta';
+        color = 'cyan';
 
         data = csv()
           .fromString(response.data)
