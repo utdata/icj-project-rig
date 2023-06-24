@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "format": "npx prettier --write .",
-    "lint": "npx eslint --fix ."
+    "lint": "npx eslint --fix .",
+    "codespace-google-auth": "printenv GOOGLE_CREDENTIALS > service_account_key.json"
   },
   "repository": {
     "type": "git",

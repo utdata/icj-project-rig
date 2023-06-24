@@ -8,6 +8,10 @@
 .AppleDouble
 .LSOverride
 
+# Google authorization files
+application_default_credentials.json
+service_account_key.json
+
 # IDE files
 .idea
 .vscode
