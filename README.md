@@ -268,6 +268,14 @@ Gulp is the task runner and is configured in `gulpfile.js`. Individual tasks liv
 
 Google authentication is handled via the Google Cloud Platform command line interface tool, [`gcloud`](https://cloud.google.com/sdk/gcloud).
 
+### Prettier
+
+If there are errors with pull requests (or perhaps elsewhere) that suggest "Forgot to run Prettier?", then run it:
+
+```bash
+npx prettier . --write
+```
+
 ### Tasks
 
 - `bake.js`: Generates detail pages from a layout and data as noted above.
