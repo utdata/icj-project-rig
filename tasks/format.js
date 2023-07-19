@@ -8,7 +8,7 @@ function format() {
       './docs/books/*.html',
       './docs/*.html',
       './src/js/*.js',
-      './src/data/*.json'
+      './src/_data/*.json'
     ])
     .pipe(prettier({ config: '.prettierrc.json' }))
     .pipe(gulp.dest((file) => file.base));

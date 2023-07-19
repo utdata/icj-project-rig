@@ -11,7 +11,7 @@ import rename from 'gulp-rename';
 const config = fs.readJsonSync('./project.config.json');
 
 function bake(resolve) {
-  const dataDir = 'src/data/';
+  const dataDir = 'src/_data/';
 
   // modularize manageEnv from nunjucks.js
   // eslint-disable-next-line func-style

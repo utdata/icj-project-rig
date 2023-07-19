@@ -19,7 +19,7 @@ function serve() {
       'src/**/*.html',
       'src/**/*.njk',
       'src/**/*.json',
-      'src/data/**/*.json'
+      'src/_data/**/*.json'
     ],
     gulp.series('nunjucks', 'bake', browserSyncReload)
   );

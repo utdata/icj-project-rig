@@ -21,7 +21,7 @@ function nunjucks(resolve) {
       }
     }
 
-    const dataDir = 'src/data/';
+    const dataDir = 'src/_data/';
 
     // loop over the directory of files
     fs.readdir(dataDir, (err, files) => {
