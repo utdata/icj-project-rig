@@ -110,11 +110,11 @@ function bake(resolve) {
       }
 
       gulp
-        .src(`src/njk/_templates/${bake.template}.njk`)
+        .src(`src/_templates/${bake.template}.njk`)
         .pipe(gulpData(d))
         .pipe(
           nunjucksRender({
-            path: 'src/njk',
+            path: 'src',
             manageEnv
           })
         )

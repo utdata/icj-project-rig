@@ -16,9 +16,9 @@ function serve() {
   });
   gulp.watch(
     [
-      'src/njk/**/*.html',
-      'src/njk/**/*.njk',
-      'src/njk/**/*.json',
+      'src/**/*.html',
+      'src/**/*.njk',
+      'src/**/*.json',
       'src/data/**/*.json'
     ],
     gulp.series('nunjucks', 'bake', browserSyncReload)

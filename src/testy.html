@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="img/the-clown.jpg" alt="">
+  <div class="row">
+    {% for book in library.books %}
+      <div class="col">
+        <img src="img/the-clown.jpg">
+
+        <img src="img/{{ book.slug }}.jpg" alt="" class="img-fluid">
+        <h3><a href="books/{{ book.slug }}.html">{{ book.title }}</a></h3>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
