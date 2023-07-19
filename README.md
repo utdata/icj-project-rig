@@ -1,4 +1,5 @@
 # ICJ Project Rig
+
 This project rig was developed for the [Intro to Coding for Journalists](https://github.com/utdata/icj-class) class taught at different times by two different professors in the School of Journalism and Media, Moody College of Communication, University of Texas at Austin:
 
 - [Christian McDonald](https://github.com/critmcdonald), Assistant Professor of Practice
@@ -7,51 +8,56 @@ This project rig was developed for the [Intro to Coding for Journalists](https:/
 The development concepts used are similar to rigs used by news graphics teams in newsrooms like The Texas Tribune, Los Angeles Times and NPR.
 
 ## Features
+
 This Node-based rig uses a Gulp workflow configured for GitHub Pages publishing. Features include:
 
-- [Bootstrap 5.1.3](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
+- [Bootstrap](https://getbootstrap.com/) and [Sass](https://sass-lang.com/).
 - [Nunjucks Templating](https://mozilla.github.io/nunjucks/templating.html) with [`journalize`](https://www.npmjs.com/package/journalize) filters.
 - Ability to configure Google Sheets and Docs (with [ArchieML](http://archieml.org/)) to manage data and content.
 
 ## Getting started
-All the necessary installations are handled in [icj-setting-up](https://github.com/utdata/icj-setting-up).
+
+All the necessary installations are handled in the [ICJ Setting Up](https://utdata.github.io/icj-setting-up/) site.
 
 To start a new project:
+
 - Create a project folder for all your code.
 - Open Visual Studio Code into that folder and open the integrated Terminal.
 - Run `degit utdata/icj-project-rig`.
 - Initialize your repo with `git init`, add and commit the files.
 - Create your GitHub repo and connect them. Your GitHub repo and local repo should have the same name. The instructions for pushing an existing local repo to your GitHub repo will appear after you create the repo on GitHub, but here are the instructions again:
   - Run `git remote add origin https://github.com/<github-username>/<github-repo-name>` in your local repo
-  - `git branch -M main`
+  - `git branch -M main` (if your default branch is not already named main)
   - `git push -u origin main`
 
 Make sure you run `degit` to get all your files _before_ you initialize your repo.
 
 ## Understanding this project rig
+
 Most of the files you edit for this project are in the `src` directory. The Gulp production process will generate the publishable files into the `docs` folder, which you shouldn't touch.
 
 ```pre
 ├── src
-|  ├── data (For data)
+|  ├── _data (For data)
+|  |── _includes (For code snippets)
+|  ├── _macros (For reusable code)
+|  ├── _templates (For templates)
 |  ├── img (For image files)
 |  ├── js (For custom JavaScript)
-|  ├── njk
-|  |  ├── _includes (For code snippets)
-|  |  ├── _macros (For reusable code)
-|  |  ├── _templates (For templates)
-|  |  └── index.njk (Becomes an HTML page)
-|  └── scss (For Sass/CSS files)
+|  ├── scss (For Sass/CSS files)
+|  └── index.njk (Becomes an HTML page)
 ```
 
-Each `.njk` file inside `src/njk` or a nested folder is compiled as an HTML file in `docs/`. Folders inside `src/njk` that start with `_` support those pages through Nunjucks templates and do NOT become HTML files.
+Each `.njk` (or `.html`) file inside `src/` or a nested folder is compiled as an HTML file in `docs/`. Folders inside `src` that start with `_` support the system and files inside do NOT become published files.
 
 ## Sass/scss
+
 The `src/scss/` folder holds all the SCSS files. It is configured for Bootstrap and the CSS gets compiled into the `docs/css` folder for docsation.
 
 There is an example of a Sass partial with the `src/scss/_nav.scss` file, which is imported into `src/scss/main.scss`.
 
 ## Nunjucks templates
+
 [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) allows you to write and reuse code in templates so you don't have to repeat code for each page of your site. The Nunjucks community has adopted `.njk` as the standard file extension.
 
 Templates work off several basic concepts:
@@ -64,31 +70,35 @@ Templates work off several basic concepts:
 With these tools, you can build a site framework once as a template, and then _extend_ that template and use all its code, but swap out predefined _blocks_ specific to your new page.
 
 ### Nunjucks template examples
+
 This project organizes Nunjucks helper files into folders that start with `_` so their contents won't be complied into full pages on your site. There are examples of **templates**, **includes** and **macros**.
 
-- The file `src/njk/_templates/base.njk` is an example base template for a website. The idea is to build the framework of the site only once, even though you might have many pages.
-- Files in `src/njk/_includes/` are snippets of code used by other templates using the _include_ tag. You can see how the  `nav.njk` and `footer.njk` includes are pulled into the `base.njk` template.
+- The file `src/_templates/base.njk` is an example base template for a website. The idea is to build the framework of the site only once, even though you might have many pages.
+- Files in `src/_includes/` are snippets of code used by other templates using the _include_ tag. You can see how the  `nav.njk` and `footer.njk` includes are pulled into the `base.njk` template.
 
 Some other files in those folders are discussed as advanced features later.
 
 ### Pages
-All **pages** are kept in the `src/njk/` folder. Each `.njk` file (including those in a nested folder that don't start with `_`) will be processed and become an `.html` file in `docs/`, and therefore a webpage on your website.
 
-This project includes the example `src/njk/index.njk`, which is the homepage of the website. It _extends_ `src/njk/_templates/base.njk`. Using the _block_ and _extend_ features allows you to worry about only main content of the page, as it inherits the nav and other framework from the base template. This example includes some loops to build content from the example library and bookstores data, described in detail below.
+All **pages** are kept in the `src/` folder. Each `.njk` file (including those in a nested folder that don't start with `_`) will be processed and become an `.html` file in `docs/`, and therefore a webpage on your website.
 
-To create a new webpage, just add a new file in `src/njk/` with the `.njk` extension. You'll want to _extend_ the `_templates/base.njk` template and put your content inside the `{% block content %}{% endblock %}` block.
+This project includes the example `src/index.njk`, which is the homepage of the website. It _extends_ `src/_templates/base.njk`. Using the _block_ and _extend_ features allows you to worry about only main content of the page, as it inherits the nav and other framework from the base template. This example includes some loops to build content from the example library and bookstores data, described in detail below.
+
+To create a new webpage, just add a new file in `src/` with the `.njk` extension. You'll want to _extend_ the `_templates/base.njk` template and put your content inside the `{% block content %}{% endblock %}` block.
 
 ### Deployment
+
 This project is designed to bundle the finished website into the `docs` folder, which can then be published anywhere you have a server. We use and commit our `docs` distribution folder to GitHub to take advantage of [GitHub Pages](https://help.github.com/categories/github-pages-basics/) for free hosting of the site.
 
-Review [GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `master/docs/` folder.
+Review [GitHub Pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) for specific directions on deployment using the `main/docs/` folder.
 
 ## Advanced Nunjucks features
 
 ### Using project data, loops
+
 Nunjucks has special [tags to apply logic](https://mozilla.github.io/nunjucks/templating.html#tags), like looping through data.
 
-Data used in the project must be saved as a JSON file in the `src/data/` folder. There are some examples in the project, including `library.json`. While not the full file, this is an example of JSON array of key-value pairs:
+Data used in the project must be saved as a JSON file in the `src/_data/` folder. There are some examples in the project, including `library.json`. While not the full file, this is an example of JSON array of key-value pairs:
 
 ```json
 {
@@ -109,21 +119,22 @@ Data used in the project must be saved as a JSON file in the `src/data/` folder.
 
 There is an example using a loop to access data in these files in `index.njk`.
 
-- You can add new `*.json` files into `src/data/` and they will be added to the Nunjucks context as `filename.arrayname`. Data is accessed with a Nunjucks variable `{{ arrayname.key }}`.
-- Optionally, with the Google Drive authentication described below, you can store data in Google Sheets or Docs and "fetch" it as JSON arrays that will be downloaded and saved into the `src/data` folder.
+- You can add new `*.json` files into `src/_data/` and they will be added to the Nunjucks context as `filename.arrayname`. Data is accessed with a Nunjucks variable `{{ arrayname.key }}`.
+- Optionally, with the Google Drive authentication described below, you can store data in Google Sheets or Docs and "fetch" it as JSON arrays that will be downloaded and saved into the `src/_data` folder.
 - You can also create global variables in `project.config.json` as key-value pairs or arrays.
 
 > IMPORTANT: If you add/change/delete data in JSON files, you must re-run the `gulp dev` command to make it available to Nunjucks.
 
 ### "Bake" pages from data and a template
+
 It is possible to generate (or "bake") multiple pages from data and a Nunjucks template. Combined with Google Sheets/Docs data management, this can be a powerful tool to create and manage multi-page websites from data collections, like voter guides, restaurant databases and investigative project case studies.
 
 The example used in the project publishes a [webpage for each book](https://utdata.github.io/icj-project-template/books/the-shipping-news.html) in a library based on "data" in a Google Doc.
 
 The process requires three things:
 
-- A Nunjucks template: The example in the project is: `src/njk/_templates/bake-book.njk`. The template displays the data through Nunjucks variables `{{ keyvalue }}`.
-- Data: A JSON data file saved in the `src/data/` folder.
+- A Nunjucks template: The example in the project is: `src/_templates/bake-book.njk`. The template displays the data through Nunjucks variables `{{ keyvalue }}`.
+- Data: A JSON data file saved in the `src/_data/` folder.
 - Configuration to pair the layout with the data: This is set up in the `project.config.json` file, which has several requirements:
 
 ```json
@@ -140,7 +151,7 @@ The process requires three things:
 }
 ```
 
-- **`template`** is the name of the template file stored in `src/njk/_templates` that will be used to build the pages. Note you don't need the extension in name.
+- **`template`** is the name of the template file stored in `src/_templates` that will be used to build the pages. Note you don't need the extension in name.
 - **`data`** is the name of the data file to build from. You don't need `.json` in the name.
 - **`array`** is the name of the array you are using from the JSON file.
 - **`slug`** is a key required from the data that will become the filename of each file created. The field used in the data needs to be in a URL-friendly format with all lowercase letters with dashes instead of spaces.
@@ -151,6 +162,7 @@ You can configure more than one "bake" task by adding new configurations to the 
 The command to generate the files is `gulp bake`, but the task is also included in the default `gulp` and `gulp dev` commands.
 
 ### Layouts and relative paths
+
 Since pages using layouts like `_templates/base.njk` and includes like `_includes/nav.njk` can come from nested directories on the site, the example pages in this project use a variable `{{ relative_path }}` to correct these paths.
 
 If needed, set the variable to the path that would return you to the root/index of the site. For example, since layout `bake-book.njk` will create files inside a folder at `/books/filename.html` we set the `{{ relative_path }}` to come up one level to come out of that "books" folder.
@@ -166,14 +178,16 @@ Any code written that includes `src` or `href` paths that could be called from a
 ```
 
 ### More Nunjucks configuration
+
 A collection of functions useful for making prose reader friendly is already included with [`journalize`](https://www.npmjs.com/package/journalize).
 
 You can add [custom filters](https://mozilla.github.io/nunjucks/api.html#custom-filters) and [global variables](https://mozilla.github.io/nunjucks/api.html#addglobal) in the `manageEnv` function inside `tasks/nunjucks.js`.
 
-In addition to data in the `src/data` folder, you can also configure data variables in the `project.config.json` file.
+In addition to data in the `src/_data` folder, you can also configure data variables in the `project.config.json` file.
 
 ## Using data from Google Drive
-To use Google Drive to store and "fetch" data, you have to configure a service account key. See [icj-setting-up](https://github.com/utdata/icj-setting-up) Part 2 to prepare this.
+
+To use Google Drive to store and "fetch" data, you have to configure a service account key. See [icj-setting-up](https://utdata.github.io/icj-setting-up/setup-part-2.html) Part 2 to prepare this.
 
 `icj-project-template` projects support downloading ArchieML-formatted Google Docs and correctly-formatted Google Sheets directly from Google Drive for use within your project. All files you want to use in your projects should be listed in `project.config.json` under the `files` key. You are not limited to one of each.
 
@@ -198,12 +212,14 @@ Each object representing a Google Drive file needs three things:
 
 - The `fileId` key represents the ID of a Google Doc or Google Sheet. This is most easily found in the URL of a document when you have it open in your browser.
 - The `type` key is used to denote whether this is a Google Doc (`doc`) or a Google Sheet (`sheet`). This controls how it gets processed.
-- The `name` key controls what filename it will receive as it is downloaded into the `data/` directory. So if the `name` is set as `hello`, it'll be saved to `src/data/hello.json`.
+- The `name` key controls what filename it will receive as it is downloaded into the `_data/` directory. So if the `name` is set as `hello`, it'll be saved to `src/_data/hello.json`.
 
 ### Gulp fetch downloads the data
+
 Once your Google Sheet or Docs are set up and entered into `project.config.json`, you can run `gulp fetch` to download the data. You must then run `gulp dev` to load that data into the Nunjucks context. If you are already running gulp dev, be sure to kill the process with Control-c, then run `gulp fetch` and restart `gulp dev` again to get the new data.
 
 ### Google Sheets
+
 For more information about how the Google Sheets processor works, check out the [sheet-to-data library](https://github.com/rdmurphy/sheet-to-data). The example Sheet used in this project is at [Bookstores data](https://docs.google.com/spreadsheets/d/1gDwO-32cgpBDn_0niV0iu6TqQTaRDr4nmSqnT53magY/edit#gid=0).
 
 Google Sheets used may potentially require some additional configuration. Each sheet (or tab) in a Google Sheet is converted separately by the kit, and keyed-off in the output object by the _name of the sheet_.
@@ -217,12 +233,14 @@ To activate the `key-value` format, add `:kv` to the end of a sheet's filename. 
 If there are any sheets you want to exclude from being processed, you can do it via two ways: hide them using the native _hide_ mechanism in Google Sheets, or add `:skip` to the end of the sheet name.
 
 ### Google Docs
+
 ArchieML Google Docs work as documented on the [ArchieML](http://archieml.org/) site. This includes the automatic conversion of links to `<a>` tags! You can use the [Archie Sandbox](http://archieml.org/sandbox.html) to see what the outputted json will look like.
 
 - The Docs example used in this project is at [Books data](https://docs.google.com/document/d/1RgMhjtkXlbbf9uzSzy_xPRKwxcVZIZqVytgM_JoU4E4/edit).
 - See [@newswire/doc-to-archieml](https://www.npmjs.com/package/@newswire/doc-to-archieml) and [ArchieML](http://archieml.org/) for more information on preparing these Google Docs as data.
 
 ### Prose macro
+
 There is a "prose" macro that can loop through multiple paragraphs of text that have been created using [freeform arrays in ArchieML](http://archieml.org/#freeform-arrays). To use this feature on a page, you need the following in your page:
 
 ```html
@@ -238,9 +256,10 @@ See the `[example_multigraph]`, `[+example_prose]` and `[+example_image]` arrays
 
 To use the "example_prose" array, the code would be `{{ prose(library.example_prose) }}`.
 
-It processes paragraphs, subheads, lists, images (though the image macro might need some work). You can add other elements in `src/njk/_macros/processors.njk`.
+It processes paragraphs, subheads, lists, images (though the image macro might need some work). You can add other elements in `src/_macros/processors.njk`.
 
 ## Technical notes
+
 Gulp is the task runner and is configured in `gulpfile.js`. Individual tasks live in the `tasks` folder.
 
 - The default `gulp` task runs the `styles`, `lint`, `scripts`, `images`, `nunjucks` and `bake` tasks to create the production files.
@@ -249,7 +268,16 @@ Gulp is the task runner and is configured in `gulpfile.js`. Individual tasks liv
 
 Google authentication is handled via the Google Cloud Platform command line interface tool, [`gcloud`](https://cloud.google.com/sdk/gcloud).
 
+### Prettier
+
+If there are errors with pull requests (or perhaps elsewhere) that suggest "Forgot to run Prettier?", then run it:
+
+```bash
+npx prettier . --write
+```
+
 ### Tasks
+
 - `bake.js`: Generates detail pages from a layout and data as noted above.
 - `clean.js`: Deletes the contents of the `docs` directory using [`del`](https://www.npmjs.com/package/del).
 - `clear.js`: Clears out the gulp cache. Useful to reprocess images of the same name stuck in cache. Run `gulp clear` then re-run `gulp`.
@@ -263,4 +291,4 @@ Google authentication is handled via the Google Cloud Platform command line inte
 - `serve.js`: Spins up a [BrowserSync](https://browsersync.io/docs/gulp) server at `localhost:3000`. Bundled with watch tasks for css/js/template changes.
 - `styles.js`: Processes Sass files from `/src/scss/` into minified css using [`gulp-sass`](https://www.npmjs.com/package/gulp-sass), [`gulp-sourcemaps`](https://www.npmjs.com/package/gulp-sourcemaps), [`gulp-autoprefixer`](https://www.npmjs.com/package/gulp-autoprefixer) and [`gulp-cssnano`](https://www.npmjs.com/package/gulp-cssnano).
 
-Many thanks to [Elbert Wang](https://github.com/elbertwang3) for developing the `bake` and `fetch` tasks.
+Many thanks to [Elbert Wang](https://github.com/elbertwang3) for developing the `bake` and `fetch` tasks, and to [Michael Plunkett](https://github.com/michplunkett) for other awesome updates.

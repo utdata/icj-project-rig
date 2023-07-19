@@ -21,7 +21,7 @@ function nunjucks(resolve) {
       }
     }
 
-    const dataDir = 'src/data/';
+    const dataDir = 'src/_data/';
 
     // loop over the directory of files
     fs.readdir(dataDir, (err, files) => {
@@ -62,15 +62,15 @@ function nunjucks(resolve) {
 
   gulp
     .src([
-      'src/njk/*.html',
-      'src/njk/*.njk',
-      'src/njk/**/*.njk',
-      '!src/njk/_*/',
-      '!src/njk/_*/**/*'
+      'src/*.html',
+      'src/*.njk',
+      'src/**/*.njk',
+      '!src/_*/',
+      '!src/_*/**/*'
     ])
     .pipe(
       nunjucksRender({
-        path: 'src/njk',
+        path: 'src',
         manageEnv
       })
     )
