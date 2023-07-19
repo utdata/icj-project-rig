@@ -4,8 +4,8 @@ function copy() {
   return gulp
     .src([
       'node_modules/jquery/dist/jquery.js',
-      'node_modules/@popperjs/core/dist/umd/popper.js',
-      'node_modules/bootstrap/dist/js/bootstrap.js'
+      'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+      'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map'
     ])
     .pipe(gulp.dest('./docs/js'));
 }
