@@ -5,8 +5,7 @@
   "main": "index.html",
   "type": "module",
   "scripts": {
-    "format": "npx prettier --write .",
-    "lint": "npx eslint --fix .",
+    "lint": "npx prettier --loglevel silent --write . && npx eslint --quiet --fix .",
     "codespace-google-auth": "printenv GOOGLE_CREDENTIALS > service_account_key.json"
   },
   "repository": {
