@@ -273,7 +273,7 @@ Google authentication is handled via the Google Cloud Platform command line inte
 If there are errors with pull requests (or perhaps elsewhere) that suggest "Forgot to run Prettier?", then run it:
 
 ```bash
-npx prettier . --write
+npm run lint
 ```
 
 ### Tasks
