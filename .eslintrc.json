@@ -4,7 +4,7 @@
   "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
-    "es6": true
+    "es2024": true
   },
   "extends": ["eslint:recommended", "plugin:compat/recommended"],
   "rules": {
