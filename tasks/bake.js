@@ -14,8 +14,7 @@ function bake(resolve) {
   const dataDir = 'src/_data/';
 
   // modularize manageEnv from nunjucks.js
-  // eslint-disable-next-line func-style
-  const manageEnv = function (env) {
+  function manageEnv(env) {
     // loop over config vars to add to nunjucks global env
     // which can be added to project.config.json
     for (const k in config) {
@@ -60,7 +59,7 @@ function bake(resolve) {
         env.addFilter(key, func);
       }
     }
-  };
+  }
 
   if (!config.to_bake) {
     resolve();
