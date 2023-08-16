@@ -51,6 +51,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulp4-run-sequence": "^1.0.2",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
     "is-valid-glob": "^1.0.0",
