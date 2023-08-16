@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/node,macos,windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,macos,windows,visualstudiocode
 
@@ -7,6 +6,10 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Static code
+/docs/css/
+/docs/js/
 
 # Google authorization files
 application_default_credentials.json

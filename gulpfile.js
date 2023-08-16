@@ -8,22 +8,20 @@ import gulp from 'gulp';
 import images from './tasks/images.js';
 import lint from './tasks/lint.js';
 import nunjucks from './tasks/nunjucks.js';
+import runSequence from 'gulp4-run-sequence';
 import scripts from './tasks/scripts.js';
 import serve from './tasks/serve.js';
 import styles from './tasks/styles.js';
 
 // default tasks
-gulp.task(
-  'default',
-  gulp.series(
-    clean,
-    styles,
-    copy,
-    gulp.parallel(lint, scripts, images),
-    nunjucks,
-    bake
-  )
-);
+gulp.task('default', (done) => {
+  runSequence(
+    'clean',
+    [clean, styles, copy, gulp.parallel(lint, scripts, images), nunjucks, bake],
+    format,
+    done
+  );
+});
 
 // run default tasks and then serve locally
 gulp.task('dev', gulp.series('default', serve));
