@@ -10,14 +10,14 @@ function images() {
     .pipe(
       cache(
         imagemin([
-          // lossy jpg compression
+          // jpeg compression
           imageminMozjpeg({
             quality: 50
           }),
           // png compression
           imageminPngquant({
             speed: 1,
-            quality: 98 // lossy settings
+            quality: 98
           })
         ])
       )
