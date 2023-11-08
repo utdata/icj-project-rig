@@ -5,8 +5,8 @@ function format() {
   return gulp
     .src([
       './src/js/*.js',
-      './docs/books/*.html',
       './docs/*.html',
+      './docs/*/*.html',
       './src/js/*.js',
       './src/_data/*.json'
     ])
