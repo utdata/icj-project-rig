@@ -11,6 +11,7 @@ const config = fs.readJsonSync('./project.config.json');
 
 async function getData() {
   const auth = await google.auth.getClient({
+    credentials: JSON.parse(process.env.SERVICE_ACCOUNT_CREDENTIALS),
     scopes: [
       'https://www.googleapis.com/auth/documents.readonly',
       'https://www.googleapis.com/auth/spreadsheets.readonly'
