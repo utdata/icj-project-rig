@@ -11,6 +11,7 @@ const config = fs.readJsonSync('./project.config.json');
 
 async function getData() {
   const auth = await google.auth.getClient({
+    // eslint-disable-next-line no-process-env
     credentials: JSON.parse(process.env.SERVICE_ACCOUNT_CREDENTIALS),
     scopes: [
       'https://www.googleapis.com/auth/documents.readonly',
