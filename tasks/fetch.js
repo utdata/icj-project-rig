@@ -9,10 +9,22 @@ import { sheetToData } from '@newswire/sheet-to-data';
 // eslint-disable-next-line no-sync
 const config = fs.readJsonSync('./project.config.json');
 
+let serviceAccountCredentials = null;
+// eslint-disable-next-line no-sync
+if (fs.existsSync('./service_account_key.json')) {
+  // eslint-disable-next-line no-sync
+  serviceAccountCredentials = fs.readFileSync('./service_account_key.json');
+}
+
+// eslint-disable-next-line no-process-env
+if (process.env.SERVICE_ACCOUNT_CREDENTIALS) {
+  // eslint-disable-next-line no-process-env
+  serviceAccountCredentials = process.env.SERVICE_ACCOUNT_CREDENTIALS;
+}
+
 async function getData() {
   const auth = await google.auth.getClient({
-    // eslint-disable-next-line no-process-env
-    credentials: JSON.parse(process.env.SERVICE_ACCOUNT_CREDENTIALS),
+    credentials: JSON.parse(serviceAccountCredentials),
     scopes: [
       'https://www.googleapis.com/auth/documents.readonly',
       'https://www.googleapis.com/auth/spreadsheets.readonly'
