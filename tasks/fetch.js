@@ -9,7 +9,7 @@ import { sheetToData } from '@newswire/sheet-to-data';
 // eslint-disable-next-line no-sync
 const config = fs.readJsonSync('./project.config.json');
 
-var serviceAccountCredentials = null;
+let serviceAccountCredentials = null;
 // eslint-disable-next-line no-sync
 if (fs.existsSync('./service_account_key.json')) {
   // eslint-disable-next-line no-sync
