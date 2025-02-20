@@ -15,9 +15,31 @@ This Node-based rig uses a Gulp workflow configured for GitHub Pages publishing.
 - [Nunjucks Templating](https://mozilla.github.io/nunjucks/templating.html) with [`journalize`](https://www.npmjs.com/package/journalize) filters.
 - Ability to configure Google Sheets and Docs (with [ArchieML](http://archieml.org/)) to manage data and content.
 
-## Getting started
+## Launching from codespaces
 
-All the necessary installations are handled in the [ICJ Setting Up](https://utdata.github.io/icj-setting-up/) site.
+1. From the [icj-project-rig repo](https://github.com/utdata/icj-project-rig), click on the green **Use this template** button and choose _Create a new repository_.
+    - This should allow you to create new repo based on icj-bootstrap-template.
+    - Leave all the other settings the same and click **Create repository**.
+    - It takes several seconds to create your repo.
+1. Click on the green **<> Code** button and then choose the **Codespaces** tab.
+    - Click **Create codespace on main**.
+    - This will take a bit more time, but should just be a couple of minutes. **It will pause at one point and give you a prompt, but wait until you see it say "Detected Node.js" and let it finish that setup.
+    - Once the Node installation finishes, your browser will look like you have a version of Visual Studio Code open, and you do!
+1. In the codespace's VS Code Terminal, run:
+    
+    ```bash
+    npm install -g gulp
+    ```
+
+1. In the Terminal, run `gulp dev`.
+
+If you get errors, you might have to try `npm install` and then run `gulp dev` again.
+
+### Using on a local machine
+
+**IF you are using codespaces, skip to the next section!**
+
+If you want to develop on your own machine vs Github codespaces, you have to set up your machine to run Node.js and have some other configurations. See the [ICJ Setting Up](https://utdata.github.io/icj-setting-up/) site on how to do that. Here we just have the steps.
 
 To start a new project:
 
