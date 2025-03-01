@@ -53,10 +53,10 @@
     "gulp-uglify": "^3.0.2",
     "gulp4-run-sequence": "^1.0.2",
     "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^5.0.1",
+    "imagemin-pngquant": "^9.0.2",
     "is-valid-glob": "^1.0.0",
     "journalize": "^2.5.1",
-    "pngquant-bin": "^3.1.1",
+    "pngquant-bin": "^8.0.1",
     "prettier": "^2.8.8",
     "sass": "^1.63.6"
   },
