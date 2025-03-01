@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "name": "News Photos",
+      "images": [
+        {
+          "src": "news1.jpg",
+          "alt": "Protesters at a rally"
+        }
+      ],
+      "description": "Highlights recent news events."
+    },
+    {
+      "name": "Music Photos",
+      "images": [
+        {
+          "src": "music1.jpg",
+          "alt": "Concert crowd"
+        }
+      ],
+      "description": "Captures vibrant music performances."
+    }
+  ]
+}
